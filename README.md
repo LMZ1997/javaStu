@@ -1,8 +1,8 @@
 # 学习java
 
 # 2020.6.8
-   数据类型容量：  byte 、char 、short  ---> int ---> long ---> float ---> double
-               当byte 、char 、short三种类型互相做运算时，结果需要至少int型
+      数据类型容量：  byte 、char 、short  ---> int ---> long ---> float ---> double
+                  当byte 、char 、short三种类型互相做运算时，结果需要至少int型
 # 2020.6.9
       String 类型定义变量必须是双引号 String name = "lmz"  ; Char类型定义变量必须是单引号 Char x = 'L'
       二进制 0，1                  例子： 01   (最大数<2)
