@@ -31,3 +31,11 @@
        获取一个随机数
                 [a,b)       math.random() * (b-a) + a
                 [a,b]       math.random() * (b-a+1) + a
+# 2020.6.12
+    for循环的真实执行顺序
+      :     int num =1;
+            for(system.out.print('a);   num<=3;    system.out.print('c'),num++){
+                   // 语句1              语句2                语句3
+                  system.out.print('b')   //语句4
+            }
+            输出： a b c b c b c  （语句1-->语句2--(满足条件)语句4 -->语句3 -->语句2 ······）
