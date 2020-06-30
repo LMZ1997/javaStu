@@ -41,3 +41,14 @@
             输出： a b c b c b c  （语句1-->语句2--(满足条件)语句4 -->语句3 -->语句2 ······）
 # 2020.6.17
      数组一经定义，长度不可再变
+# 2020.6.29
+     学习了二维数组的一些属性
+         1.  int[][] arr = new int[3][2]
+             system.out.println(arr[1])  //是一个地址值（因为都是堆栈存储 ，栈内存储地址值）
+             system.out.println(arr[1][1])  //0    此处的值根据声明数组的类型决定  new float：0.0   new boolean:false  new string:null 
+         2.  int [][] arr = new int[3][]
+             system.out.println(arr[1])  // null
+             system.out.println(arr[1][1]) //报错了
+         3. int[] x  ===  int x[] 
+            int[][] y ===  int[] y[]  === int y[][]          
+     
