@@ -116,8 +116,37 @@
                 这是多态的一个作用，若没有多态性，那么此方法的参数必须是Animal类，而不可以是其子类dog或cat,
                 并且dog要去调用dog类上的test方法，cat要去调用cat类上的方法，代码冗杂
         多态性只适用于方法，不适用于属性变量，即变量不存在多态性
-# equals()方法？
-      ：比较对象的实体内容是否相等
-        注意点：若是自己写的类，那么调用equals()方法，是继承自Object类的方法，此时比较的是对象的地址值，类似于==
-                而java封装的类如String Date等，equal()方法是经过重写的，此时比较的才是实体内容
-              所以，若是自定义的类需要使用equal()的话，就需要在类中重写，默认提供了一键重写
+# 2020.8.5
+        equals()方法？
+            ：比较对象的实体内容是否相等
+              注意点：若是自己写的类，那么调用equals()方法，是继承自Object类的方法，此时比较的是对象的地址值，类似于==
+                      而java封装的类如String Date等，equal()方法是经过重写的，此时比较的才是实体内容
+                    所以，若是自定义的类需要使用equal()的话，就需要在类中重写，默认提供了一键重写
+# 2020.8.6
+      java中两个字符串的比较
+        ：   String s1 = 'AA';
+             String s1 = 'AA';
+             system.out.println(s1 == s2) ;  //true  虽然String是引用类型，但是这样声明的字符串还是相等的
+
+             s1 = 'BB'
+             system.out.print(s2) //'AA'
+      当syso一个对象实例的时候，其实是syso对象实例.toString()
+      如何创建一个单元测试？
+           详细步骤：    1. 选中当前工程 --右键选择 build path -- add libraries -- Junit 4 -- 下一步
+                         2. 创建类（public 无参构造器）
+                         3. 创建单元测试方法 （public 、 void 、无参）
+                         4. 在方法前声明注解 ： @Test   (需import相关包）
+                         5. 测试时 -- 双击方法名，右键选择 Run as -Junit test
+           简单步骤：    在需要单元测试的地方(需要保证类的条件)，直接写上@Test 并且写上测试方法，此时会有错误，点击需要的操
+                      作，系统自己会执行一系列步骤
+     基本数据类型与包装类之间的相互转换
+           ： 1. 基本数据类型-->包装类  ：  用 new + 类(某个值)    如：int num1 = 2 ; Interge obj1 = new Interge(num1)
+              2. 包装类 ---> 基本数据类型  ： 用obj1.xxxValue()    如：int num2 = obj1.intValue()
+              自动拆箱与自动装箱可以简化以上过程   如 ： int num3 = obj1 实际就等于 int num3 = obj1.intValue()
+              3.String与二者的相互转换    String s = "123"
+                  String --> 基本类型或包装类   
+                      类.parseXxx()   如：int i = Interge.parseInt(s)
+                  基本类型 -->  String
+                     String.valueof()   如： String s1 = String.valueof(i)
+                  
+                  
