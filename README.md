@@ -193,3 +193,18 @@
              Person p = new Person(){
                  //方法体里需要重写父类(Person)中的抽象方法
              }
+# 2020.8.13
+       interface关键字？
+             ：用来描述一类事物拥有共同的行为特征
+                  >例如：鸟 飞机 子弹   共同特征：会飞
+               在JDK7之前：只能声明全局常量及抽象方法
+                  ：1. public static final int NUM = 1  因为在interface中写法是固定的，所以默认可以省略 public static final这三个修饰符
+                    2. public abstract void fly()       因为在interface中写法是固定的，所以默认可以省略public abstract这两个修饰符
+     如何实现接口？（使用implements关键字）
+            ：通过实现接口，可以使对应的类拥有接口的行为特征
+             class plane implements 接口名称{ 
+                //重写对应的抽象方法，否则此类也必须声明为抽象类  
+             }
+     java类具有单继承性，但是接口却可以同时implements多个，用逗号隔开,并且类可以同时extends和implements
+         > class A extends b implements C,D,E
+      接口之间也可以使用extends继承，并且支持多继承，即一个接口继承自多个接口
