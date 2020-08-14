@@ -200,6 +200,7 @@
                在JDK7之前：只能声明全局常量及抽象方法
                   ：1. public static final int NUM = 1  因为在interface中写法是固定的，所以默认可以省略 public static final这三个修饰符
                     2. public abstract void fly()       因为在interface中写法是固定的，所以默认可以省略public abstract这两个修饰符
+               在JDK8之后：不仅可以声明全局变量、抽象方法，还可以声明静态方法、默认方法
      如何实现接口？（使用implements关键字）
             ：通过实现接口，可以使对应的类拥有接口的行为特征
              class plane implements 接口名称{ 
@@ -208,3 +209,19 @@
      java类具有单继承性，但是接口却可以同时implements多个，用逗号隔开,并且类可以同时extends和implements
          > class A extends b implements C,D,E
       接口之间也可以使用extends继承，并且支持多继承，即一个接口继承自多个接口
+# 2020.8.14
+       工厂(xxxFactory)?
+             :创建与调用分开写
+        如何调用接口中的默认方法？
+             ：接口名.super.方法名()
+        static的使用限制？
+              ：static只能修饰类的内部成员，担当类是一个内部类时，就也可以被static修饰了
+        如何实例化内部类的对象？
+              外部类Person  内部类Dog/Bird
+             ：1. 静态内部类 
+                   Person.Dog dog = new Person.Dog()
+               2. 非静态内部类
+                  Person p = new Person()
+                  Person.Bird bird = p.new Bird();
+        开发中可能应用到内部类的地方？
+              ：在一个方法中返回一个实现了某个接口的类的对象，为了返回这个对象，需要实现一个内部类
