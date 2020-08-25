@@ -228,3 +228,7 @@
 # 2020.8.18
        异常处理throws和throw
             ：throws是系统自己监测到异常然后抛给上层处理 ； throw new ... 是手动抛出异常
+# 2020.8.25
+     IDEA快捷键？
+         psvm+回车 ： main方法
+         sout+回车  ： syso输出语句
