@@ -283,3 +283,19 @@
              wait()   //当前线程执行了此方法后，就会被阻塞，并释放锁，那此时另一个线程就会获取到锁并执行
              notify()   //另一个线程执行时，会唤醒那个被wait阻塞的线程，当线程执行相应代码后，此时又会执行wait()，自己又被堵塞
              注意：这几个方法都必须使用在同步代码块或同步方法中 ，调用者都是谁呢？都是同步监视器，即锁
+       创建线程的第三种方式？
+              ：回顾下前两种
+                     1.  extends Thread
+                     2. implements Runnable
+                3.implements Callable
+                  具体步骤： ① 声明一个实现了Callable的实现类
+                             ② 在重写call方法中编写需要线程执行的代码，此处比前两种线程方法多一个功能，就是可以return一个值
+                             ③ main方法中创建实现类的对象o
+                             ④ 创建FutureTask类的对象M,将对象o作为参数传递到FutureTask的构造器中
+                             ⑤ 执行new Thread(M).start()，到此线程已经编写完毕
+                             ⑥ 此步骤是可有可无，若你想获取到②步骤中的返回值，那么可以调用M.get()，值就是你想要的
+        创建线程的第四种方式？
+              ：使用线程池
+                步骤：1.main方法中提供指定线程数量的线程池 ExecutorService servive = Executors.newFixedThreadPool(10) :表示10个线程
+                      2.执行指定的线程的操作。根据执行的方法()去提供实现Runbale或Callable的接口实现类的对象
+                      3.关闭连接池
