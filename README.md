@@ -299,3 +299,18 @@
                 步骤：1.main方法中提供指定线程数量的线程池 ExecutorService servive = Executors.newFixedThreadPool(10) :表示10个线程
                       2.执行指定的线程的操作。根据执行的方法()去提供实现Runbale或Callable的接口实现类的对象
                       3.关闭连接池
+# 2020.9.3
+        Strgin类型？
+              ：字面量创建的字符串数据存放在方法区的字符串常量池中
+                new创建的字符串数据，是数据在堆空间中开辟控件存储，实例对象存放的是地址值
+        string数据拼接？
+               ：当str1 = "aa"+"bb" ,str2= "aabb"  ，那么str1 == str2
+                 当一个字符串是由一个变量+一个字符串拼接而成时，那么这个字符串相当于是new出来的
+        String数据的不可变性？
+                ：声明一个字符串，当改变该字符串的值时，之前变量池中存储的数据并没有改变，只是地址值指向了新的数据
+        String于char[]之间的转换？
+               ： char[] c1 = str.toCharArray();
+                  String str2 = new String(new Char[]{'h' ,'e','l','l','o'})
+       String与byte[]之间的转换？  //编码和解码
+               ： byte[] bytes = str.getBytes();  //参数可以传递不同的字符集进行编码，如（utf-8,gbk)，没有参数使用的默认的
+                  String str2 = new String(bytes)
