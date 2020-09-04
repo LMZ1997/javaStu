@@ -306,6 +306,7 @@
         string数据拼接？
                ：当str1 = "aa"+"bb" ,str2= "aabb"  ，那么str1 == str2
                  当一个字符串是由一个变量+一个字符串拼接而成时，那么这个字符串相当于是new出来的
+             注意： 加了final声明的str不是变量而是常量
         String数据的不可变性？
                 ：声明一个字符串，当改变该字符串的值时，之前变量池中存储的数据并没有改变，只是地址值指向了新的数据
         String于char[]之间的转换？
@@ -314,3 +315,12 @@
        String与byte[]之间的转换？  //编码和解码
                ： byte[] bytes = str.getBytes();  //参数可以传递不同的字符集进行编码，如（utf-8,gbk)，没有参数使用的默认的
                   String str2 = new String(bytes)
+# 2020.9.4
+        String的三个包装类？
+            1. String   //不可变的字符序列  底层源码默认char[] 数组length为0；
+            2.StringBuffer  //可变的字符序列,相关方法都加了synchronized，就说明是多用于保正多线程安全的场景 ，那么自然的它的效率就比较低  默认16
+            3.StringBuilder //可变的字符序列，jdk5.0新增，相关方法没有s'ynchronzied，线程不安全，那么自然的它的效率就高， 默认16
+       日期事件类？
+             1.java.util.Date
+             2.java.sql.Date
+                util.Date是sql.Date的父类，sql.Date多用于数据库文件；
