@@ -324,3 +324,10 @@
              1.java.util.Date
              2.java.sql.Date
                 util.Date是sql.Date的父类，sql.Date多用于数据库文件；
+# 2020.9.7
+       StringBuilder类型拼接字符串的方式？
+           ：sb.append("字符串")  而不是用+(加号)拼接   
+       日期类格式化？
+           ：SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss")   // 构造器参数传自己想要的数据格式
+       日历类与Date之间的相互转换？
+            ：Date date = Calendar.getInstance().getTime() ;    // 日历---> Date
