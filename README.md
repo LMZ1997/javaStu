@@ -331,3 +331,10 @@
            ：SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss")   // 构造器参数传自己想要的数据格式
        日历类与Date之间的相互转换？
             ：Date date = Calendar.getInstance().getTime() ;    // 日历---> Date
+# 2020.9.8
+       如何比较对象的大小？
+            ：使用comparable或comparator接口的compareTo() ;
+               如果是自定义类对象，那么需要重写compareTo() ; 比较this与传入的obj属性大小
+               comparable 自然排序 Arrays.sort(arr)  默认调用compareTo                     多用于复用性比较
+               comparator 定制排序  Arrays.sort(arr,new Comparator(){ //重写compare() })   多用于临时性比较
+       
