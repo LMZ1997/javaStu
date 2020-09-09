@@ -337,4 +337,15 @@
                如果是自定义类对象，那么需要重写compareTo() ; 比较this与传入的obj属性大小
                comparable 自然排序 Arrays.sort(arr)  默认调用compareTo                     多用于复用性比较
                comparator 定制排序  Arrays.sort(arr,new Comparator(){ //重写compare() })   多用于临时性比较
-       
+# 2020.9.9
+       创建枚举类的方式？
+            1.自定义枚举类 
+              class Season{ ... }
+            2.使用enum关键字定义枚举类
+              enum Season{ ... }
+       如何自定义注解？
+            ：1.声明一个Annotation类型的文件
+              2. 方法体里写 String value()就行了  //此处可以声明默认值 String value() default "hello"
+              3. 使用 @MyAnnotation(value="hello")
+       什么叫元注解？
+             ：对现有的注解进行解释说明的注解
