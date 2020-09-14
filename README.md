@@ -368,3 +368,37 @@
                 Set接口插入一个值时，保证其不重复并不是遍历之前所有的跟它比较是否相同，而是将该值转换为一个hash值，再根据某个算法，算出该hash值
                 应该保存在集合的哪个位置上，此时判断该位置上是否有元素，若没有，那直接插入成功，若有，那就需要对其进行比较了，如果不相同，那就把这个
                 新值以链表形式通过指针放在这个位置的下边（新元素位置是“七上八下”，jdk7/jdk8），如果相同，那就插不进去了
+# 2020.9.14
+       向Set接口实现的集合里边插入对象需要注意什么？
+              ：对象所在的类一定要重写hashCode()和equals()
+       HashSet与LinkedHashSet区别？
+              ：它们存储的数据都是无序性的，但是LinkedHashSet遍历输出时，数据输出的先后顺序是根据用户添加时的顺序，为什么呢，因为Linked，在添加数据的
+              同时，每个数据还绑定了两个引用，分别记录此数据的前一个和后一个，对于需要频繁的遍历操作时，优先使用LinkedHashSet
+       自然排序和定制排序？
+             ：字然排序就是给改变要比较的对象的类，让它implements Comparable接口，然后重写compareTo()
+               定制排序是生成一个comparator()的实例，这个实例的类中是重写过compare()的。
+       Map和Collection的区别？
+             ： Map是双列数据，存储key-value对的数据 
+               Collection是单列数据，存储value数据
+      HashMap和Hashtable的异同？（这里的t就是小写）
+            ： HashMap是Map的实现类；线程不安全，效率高；可以存储null的key或value
+               Hashtable是古老的实现类；线程安全，效率低；不可以存储null的key或value
+      HashMap的底层实现原理？（jdk7）
+             ：Hash map = new HashMap()
+               实例化以后，低层创建了一个长度是16的一维数组Entry[] table;
+               当某次put操作时，map.put(key1,value1)
+               首先，调用key1所在类的hashCode()计算key1的哈希值，此哈希值经过某种算法后，得到在Entry数组中的存放位置
+               若该位置上的数据为空，那么key1,value1添加成功
+               若该位置上数据已经有了(key2 ,value2),那么就要比较key1和key2的哈希值，
+               如果hash值不相等，那么(key1,value1)以链表的形式存入成功
+               否则，就要调用key1所在类的equals方法，
+               若equals()返回false,那么那么(key1,value1)以链表的形式存入成功。
+               若equals()返回true，那么key1-value1不是添加失败，而是value1会替代value2存储在那。
+               
+               jdk8之后修改了部分底层原理？
+               1.在实例化时，不创建数组了，是在第一次put操作时创建，并且类型为Node[]
+               2.jdk7底层结构只有：数组+链表
+                 jdk*底层结构有：  数组+链表+红黑树  
+               注意：当数组中某个索引位置上的元素以链表形式存在的数据的个数 > 8 && 数组的长度 >64时，此索引位置上的所有数据改为红黑树存储                
+      HashMap的扩容？
+               ：当数组的size大于临界值且元素将要放的位置非空时，就扩容，默认的扩容方式为原来容量的2倍
